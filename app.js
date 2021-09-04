@@ -29,6 +29,10 @@ else
 
 }
 
+
+
+
+
 console.log(isPalindrome("hiih"));
-console.log(isPalindrome('none'));
+console.log(isPalindrome('gone'));
 console.log(isPalindrome("lol"));
