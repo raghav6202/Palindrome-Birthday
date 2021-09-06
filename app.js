@@ -29,7 +29,7 @@ else
 
 }
 
-function numberToString(date)
+function numberToString(date)                 //helper function
 
 //conversion of number data type to string data type.
 {
@@ -75,10 +75,159 @@ function numberToString(date)
 
 }
 
+
+function getAllFormats (date) //converts to different formats
+{
+
+    var dateStr = numberToString(date) ;   //using helper function
+
+    var ddmmyyyy = dateStr.day + dateStr.month + dateStr.year;
+    var mmddyyyy = dateStr.month + dateStr.day + dateStr.year;
+    var yyyymmdd = dateStr.year + dateStr.month+ dateStr.day ;
+    var ddmmyy = dateStr.day + dateStr.month + dateStr.year.slice(-2);  // we need only the last two digits of yyyy
+    var mmddyy = dateStr.month + dateStr.day + dateStr.year.slice(-2);
+    var yymmdd = dateStr.year.slice(-2) + dateStr.month+ dateStr.day ;
+
+    return  [ddmmyyyy,mmddyyyy,yyyymmdd,ddmmyy,mmddyy, yymmdd];
+
+
+}
+
+function checkPalindromeForAllFormats(date)
+{
+    var listPalindrome = getAllFormats(date);
+
+    // default
+    var flag = false;
+
+    for(var i=0 ; i<listPalindrome.length ;i++){
+if(isPalindrome(listPalindrome[i]))
+
+{
+    var flag = true;
+  break;
+}
+
+    }
+
+    return flag;
+}
+
+
+
+function isLeapYear (year)
+{
+
+    if(year % 400 === 0)
+    {
+return true;
+    }
+    if(year % 100 === 0)
+    {
+        return false;
+    }
+
+    if(year % 4 === 0)
+    {
+        return true;
+    }
+
+    else
+    {
+
+        return false;
+    }
+}
+
+function getNextDate (date)
+{
+var day = date.day + 1; //day increment
+var month = date.month;
+var year = date.year;
+
+var daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+
+
+
+
+if(month === 2)
+//february 
+{
+    if(isLeapYear(year))
+    {
+        if(day > 29)
+        {
+            day = 1;
+            month++
+        }
+    }
+
+    else
+    {
+
+        if(day > 28)
+        {
+            day = 1;
+            month++;
+        }
+    }
+
+
+}
+else
+{
+
+if(day > daysInMonth[month - 1]) //month increment if allthe days in the month are completed
+{
+
+    day = 1;
+    month++
+}
+}
+
+if(month > 12)
+{
+month = 1;
+year++;
+
+}
+
+return {
+    day: day,
+    month: month,
+    year: year
+  };
+}
 var date = {
 
-    day:25,
-    month:10,
+    day:31,
+    month:12,
     year:2020
 }
-console.log(numberToString(date));
+
+function getNextPalindrome(date)
+{
+
+    var howFarPalinDate = 0;
+    var nxtDate = getNextDate(date);
+
+    while(1)
+    {
+
+        howFarPalinDate++;
+        var isItPalindrome = checkPalindromeForAllFormats(nxtDate);
+        if(isItPalindrome)
+        {
+            break;
+        }
+        else
+        {
+            nxtDate = getNextDate(nxtDate);
+        }
+    }
+
+    return[howFarPalinDate,nxtDate];
+}
+
+console.log(getNextPalindrome(date));
