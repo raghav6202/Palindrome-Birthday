@@ -230,4 +230,46 @@ function getNextPalindrome(date)
     return[howFarPalinDate,nxtDate];
 }
 
+
+function getPreviousDate (date)
+{
+
+    var day = date.day - 1;
+    var month = date.month;
+    var year = date.year;
+
+    var daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+    if(day === 0)
+    {
+        month--;
+        if(month === 0 )
+        {
+            day = 31;
+            month = 12;
+            year--;
+        }
+
+        else if(month === 2)
+        {
+            if(isLeapYear(year))
+            {
+                day = 29;
+            }
+
+            else
+            {
+                day = 28;
+            }
+        }
+
+        else
+        {
+            day = daysInMonth[month - 1];
+        }
+    }
+    
+
+}
+
 console.log(getNextPalindrome(date));
