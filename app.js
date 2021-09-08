@@ -328,9 +328,9 @@ if(bdayStr !== '')
 
     var date = {
 
-        day:listOfDate[2], //assign day,month,year to the elements listOfDate year.
-        month:listOfDate[1],
-        year:listOfDate[0]
+        day:Number(listOfDate[2]), //assign day,month,year to the elements listOfDate year.
+        month:Number(listOfDate[1]),
+        year:Number(listOfDate[0])
     }
 
     var isItPalindrome = checkPalindromeForAllFormats(date);
