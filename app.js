@@ -199,12 +199,6 @@ return {
     year: year
   };
 }
-var date = {
-
-    day:31,
-    month:12,
-    year:2020
-}
 
 function getNextPalindrome(date)
 {
@@ -234,42 +228,128 @@ function getNextPalindrome(date)
 function getPreviousDate (date)
 {
 
-    var day = date.day - 1;
-    var month = date.month;
-    var year = date.year;
+    var day = date.day - 1;  //0
+    var month = date.month;  
+    var year = date.year;  
 
     var daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
 
     if(day === 0)
     {
-        month--;
+        month--;  //2
         if(month === 0 )
         {
             day = 31;
             month = 12;
             year--;
         }
-
+    
         else if(month === 2)
         {
             if(isLeapYear(year))
             {
+                
                 day = 29;
+             
             }
 
             else
             {
+                
                 day = 28;
+             
             }
+            
         }
+    
 
         else
         {
-            day = daysInMonth[month - 1];
+            day = daysInMonth[month - 1]; // used during first day of other months
         }
+    }
+
+    return {
+        day:day,
+        month:month,
+        year:year
     }
     
 
 }
 
-console.log(getNextPalindrome(date));
+
+
+
+function getPreviousPalindrome (date)
+{
+
+    var howFarPalinDate = 0;
+    var prevDate = getPreviousDate(date);
+
+
+while(1)
+    {
+
+        howFarPalinDate--;
+        var isItPalindrome = checkPalindromeForAllFormats(prevDate);
+        if(isItPalindrome)
+        {
+            break;
+        }
+        else
+        {
+            prevDate = getPreviousDate(prevDate);
+        }
+    }
+
+    return[howFarPalinDate,prevDate];
+
+
+}
+
+
+
+var dateInput = document.querySelector('#date-input');
+
+var checkButton = document.querySelector('#check-btn');
+
+var outputDisplay = document.querySelector('#display-output');
+
+function clickHandler()
+{
+
+var bdayStr = dateInput.value; //assigning variable to date input
+
+if(bdayStr !== '')
+{
+
+    var listOfDate = bdayStr.split("-");
+
+    var date = {
+
+        day:listOfDate[2], //assign day,month,year to the elements listOfDate year.
+        month:listOfDate[1],
+        year:listOfDate[0]
+    }
+
+    var isItPalindrome = checkPalindromeForAllFormats(date);
+
+    if(isItPalindrome)
+    {
+showMessage("Congratulations your Birthday is a Palindrome")
+
+    }
+
+}
+
+}
+
+checkButton.addEventListener('click', clickHandler);
+
+function showMessage(display)
+{
+
+    outputDisplay.innerText = display;
+
+}
