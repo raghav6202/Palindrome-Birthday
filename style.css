@@ -13,6 +13,7 @@ header
     text-align: center;
     font-size: large;
     margin: 2rem;
+    
     background-color: #B9FDB9;
     padding: 0.25rem;
     border-radius: 2rem;
@@ -34,6 +35,7 @@ main
 
     text-align: center;
     margin: 1rem;
+    margin-bottom: 2rem;
     background-color: #F7FF09;
     padding: 0.6rem 1rem;
     border-radius: 2rem;
@@ -44,7 +46,7 @@ input
 {
 
     
-        font-size: 14px;
+        font-size: large;
         outline: #2080A1;
         padding: 0.6rem 1rem;
         margin: 2rem;
@@ -63,7 +65,8 @@ input
     background: var(--primary-color);
     border: none;
     color: black;
-    padding: 0.7rem 1rem;
+    /* padding: 0.7rem 1rem; */
+    padding: 0.7rem 4rem;
     border-radius: 0.5rem;
     font-size: large;
     cursor: pointer;
