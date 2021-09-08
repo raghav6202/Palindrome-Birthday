@@ -1,0 +1,77 @@
+
+
+body
+
+{
+    background-color: #2080A1;
+}
+
+header
+{
+    text-align: center;
+    font-size: large;
+    margin: 2rem;
+    background-color: #B9FDB9;
+    padding: 0.25rem;
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+}
+p
+{
+    display: block;
+    font-size: large;
+    font-weight: 600;
+}
+
+main
+{
+
+    text-align: center;
+    margin: 1rem;
+    background-color: #F7FF09;
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+}
+
+input
+{
+
+    
+        font-size: 14px;
+        outline: #2080A1;
+        padding: 0.6rem 1rem;
+        margin: 2rem;
+      
+        border: 2px solid #62a301;
+        border-radius: 0.5rem;
+      
+        
+        max-width: 258px;
+    
+}
+
+#check-btn
+ {
+
+    background: var(--primary-color);
+    border: none;
+    color: black;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    font-size: large;
+    cursor: pointer;
+    outline: #2080A1;
+  background-color: #62a301 ;
+    margin: auto;
+    display: block;
+}
+
+#display-output
+{
+    font-size: x-large;
+    margin: 2rem 0;
+    color: rgb(219, 43, 43);
+}
