@@ -345,7 +345,7 @@ else
 
     var [howFarPalinDate,nxtDate] = getNextPalindrome(date);
     var [howFarIsPalinDate,prevDate] = getPreviousPalindrome(date);
-    showMessage("Sorry Your Birthday Is Not A Palindrome \n \n The next palindrome date is " + nxtDate.day   + "-" + nxtDate.month  + "-" + nxtDate.year  + " \n You missed it by " + howFarPalinDate + " days" + "\n \n The previous palindrome date was " + prevDate.day   + "-" + prevDate.month  + "-" + prevDate.year  + " \n You missed it by " + howFarIsPalinDate + " days")
+    showMessage("Sorry Your Birthday Is Not A Palindrome ☹️ \n \n The next palindrome date is " + nxtDate.day   + "-" + nxtDate.month  + "-" + nxtDate.year  + " \n You missed it by " + howFarPalinDate + " days" + "\n \n The previous palindrome date was " + prevDate.day   + "-" + prevDate.month  + "-" + prevDate.year  + " \n You missed it by " + howFarIsPalinDate + " days")
 
 }
 
