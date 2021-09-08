@@ -284,14 +284,14 @@ function getPreviousDate (date)
 function getPreviousPalindrome (date)
 {
 
-    var howFarPalinDate = 0;
+    var howFarIsPalinDate = 0;
     var prevDate = getPreviousDate(date);
 
 
 while(1)
     {
 
-        howFarPalinDate--;
+        howFarIsPalinDate--;
         var isItPalindrome = checkPalindromeForAllFormats(prevDate);
         if(isItPalindrome)
         {
@@ -303,7 +303,7 @@ while(1)
         }
     }
 
-    return[howFarPalinDate,prevDate];
+    return[howFarIsPalinDate,prevDate];
 
 
 }
@@ -337,10 +337,25 @@ if(bdayStr !== '')
 
     if(isItPalindrome)
     {
-showMessage("Congratulations your Birthday is a Palindrome")
+showMessage("Congratulations!! 🎉🎉 \n Your Birthday is a Palindrome")
 
     }
+else
+{
 
+    var [howFarPalinDate,nxtDate] = getNextPalindrome(date);
+    var [howFarIsPalinDate,prevDate] = getPreviousPalindrome(date);
+    showMessage("Sorry Your Birthday Is Not A Palindrome \n \n The next palindrome date is " + nxtDate.day   + "-" + nxtDate.month  + "-" + nxtDate.year  + " \n You missed it by " + howFarPalinDate + " days" + "\n \n The previous palindrome date was " + prevDate.day   + "-" + prevDate.month  + "-" + prevDate.year  + " \n You missed it by " + howFarIsPalinDate + " days")
+
+}
+
+
+
+}
+
+else 
+{
+    showMessage("Please Select A Date")
 }
 
 }
@@ -349,7 +364,7 @@ checkButton.addEventListener('click', clickHandler);
 
 function showMessage(display)
 {
-
+    outputDisplay.innerText.color
     outputDisplay.innerText = display;
 
 }
